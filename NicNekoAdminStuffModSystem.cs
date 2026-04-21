@@ -556,6 +556,16 @@ namespace NicNekoAdminStuff
             {
                 originalFallDamageMultiplier = player.Entity.Properties.FallDamageMultiplier;
             }
+
+            // Always reset flight state on join — the server may have persisted FreeMove/NoClip
+            // from a previous session even if the player disabled it before logging out.
+            isFlying = false;
+            isFlightNoclip = false;
+            if (byPlayer?.WorldData != null)
+            {
+                byPlayer.WorldData.FreeMove = false;
+                byPlayer.WorldData.NoClip = false;
+            }
         }
 
         private void OnFlightPermissionResponse(FlightPermissionResponse packet)
