@@ -1,0 +1,5 @@
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\bin\Release\Mods\mod\publish\modinfo.json
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\bin\Release\Mods\mod\publish\modicon.png
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\bin\Release\Mods\mod\publish\NicNekoAdminStuff.dll
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\bin\Release\Mods\mod\publish\NicNekoAdminStuff.deps.json
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\bin\Release\Mods\mod\publish\NicNekoAdminStuff.pdb

@@ -1,0 +1,16 @@
+{
+  "type": "code",
+  "modid": "nicnekoadminstuff",
+  "name": "NicNekoAdminStuff",
+  "authors": [
+    "NicNeko"
+  ],
+  "description": "Some of my Admin stuff.",
+  "version": "1.0.9",
+  "Side": "Universal",
+  "RequiredOnClient": true,
+  "RequiredOnServer": true,
+  "dependencies": {
+    "game": ""
+  }
+}

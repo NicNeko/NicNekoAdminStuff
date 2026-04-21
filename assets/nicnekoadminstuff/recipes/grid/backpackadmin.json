@@ -1,0 +1,15 @@
+{
+  ingredientPattern: "CLQ,LHL,VLX",
+  ingredients: {
+    "C": { type: "item", code: "game:coke", quantity: 1 },
+    "L": { type: "item", code: "game:leather-normal-plain", quantity: 1 },
+    "Q": { type: "item", code: "game:charcoal", quantity: 1 },
+    "H": { type: "item", code: "game:basket-normal-reed", quantity: 1 },
+    "V": { type: "item", code: "game:ore-lignite", quantity: 1 },
+    "X": { type: "item", code: "game:ore-bituminouscoal", quantity: 1 }
+  },
+  width: 3,
+  height: 3,
+  name: "backpack",
+  output: { type: "item", code: "nicnekoadminstuff:backpackadmin"  }
+}
