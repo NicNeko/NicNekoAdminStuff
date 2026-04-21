@@ -12,3 +12,4 @@ C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuf
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Debug\refint\NicNekoAdminStuff.dll
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Debug\NicNekoAdminStuff.pdb
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Debug\ref\NicNekoAdminStuff.dll
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Debug\NicNekoAdminStuff.sourcelink.json

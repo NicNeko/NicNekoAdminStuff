@@ -59,7 +59,7 @@ namespace NicNekoAdminStuff
         public string FlightDeniedMessage { get; set; } = "You don't have permission to use flight mode!";
         public string FlightNoclipDeniedMessage { get; set; } = "You don't have permission to use flight+noclip mode!";
         public string FlightKey { get; set; } = "R";
-        public string FlightNoclipKey { get; set; } = "N";
+        public string FlightNoclipKey { get; set; } = "Ctrl+R";
 
         public FlightConfigData()
         {
@@ -481,11 +481,11 @@ namespace NicNekoAdminStuff
                 clientApi.Input.SetHotKeyHandler("toggleflight", (comb) => OnToggleFlightWithModifiers(comb, flightKey));
 
                 // Parse flight+noclip key - now just "N"
-                var flightNoclipKey = ParseKeyCombo(config?.FlightNoclipKey ?? "N");
+                var flightNoclipKey = ParseKeyCombo(config?.FlightNoclipKey ?? "Ctrl+R");
                 clientApi.Input.RegisterHotKey("toggleflightnoclip", "Toggle Flight+Noclip Mode", flightNoclipKey.Key, HotkeyType.CharacterControls);
                 clientApi.Input.SetHotKeyHandler("toggleflightnoclip", (comb) => OnToggleFlightNoclipWithModifiers(comb, flightNoclipKey));
 
-                clientApi.Logger.Notification($"Keybinds registered: Flight={config?.FlightKey ?? "R"}, Flight+Noclip={config?.FlightNoclipKey ?? "N"}");
+                clientApi.Logger.Notification($"Keybinds registered: Flight={config?.FlightKey ?? "R"}, Flight+Noclip={config?.FlightNoclipKey ?? "Ctrl+R"}");
             }
             catch (Exception e)
             {
@@ -493,7 +493,7 @@ namespace NicNekoAdminStuff
                 // Fallback to default keys
                 clientApi.Input.RegisterHotKey("toggleflight", "Toggle Flight Mode", GlKeys.R, HotkeyType.CharacterControls);
                 clientApi.Input.SetHotKeyHandler("toggleflight", OnToggleFlight);
-                clientApi.Input.RegisterHotKey("toggleflightnoclip", "Toggle Flight+Noclip Mode", GlKeys.N, HotkeyType.CharacterControls);
+                clientApi.Input.RegisterHotKey("toggleflightnoclip", "Toggle Flight+Noclip Mode", GlKeys.R, HotkeyType.CharacterControls, false, true, false);
                 clientApi.Input.SetHotKeyHandler("toggleflightnoclip", OnToggleFlightNoclip);
             }
         }
@@ -595,7 +595,6 @@ namespace NicNekoAdminStuff
 
         private bool OnToggleFlightWithModifiers(KeyCombination comb, (GlKeys Key, bool Alt, bool Ctrl, bool Shift) expectedKey)
         {
-            // Check if the pressed combination matches what we expect
             if (comb.Alt != expectedKey.Alt || comb.Ctrl != expectedKey.Ctrl || comb.Shift != expectedKey.Shift)
                 return false;
 
@@ -622,7 +621,6 @@ namespace NicNekoAdminStuff
 
         private bool OnToggleFlightNoclipWithModifiers(KeyCombination comb, (GlKeys Key, bool Alt, bool Ctrl, bool Shift) expectedKey)
         {
-            // Check if the pressed combination matches what we expect
             if (comb.Alt != expectedKey.Alt || comb.Ctrl != expectedKey.Ctrl || comb.Shift != expectedKey.Shift)
                 return false;
 
@@ -692,7 +690,7 @@ namespace NicNekoAdminStuff
                 // If flight+noclip is currently on, disable it first
                 if (isFlightNoclip)
                 {
-                    await DisableFlightNoclipMode();
+                    DisableAllFlight();
                 }
 
                 bool requestingEnable = !isFlying;
@@ -728,7 +726,7 @@ namespace NicNekoAdminStuff
                 else
                 {
                     // Disable flight mode
-                    await DisableFlightMode();
+                    DisableAllFlight();
                 }
             }
             catch (Exception ex)
@@ -748,7 +746,7 @@ namespace NicNekoAdminStuff
                 // If regular flight is currently on, disable it first
                 if (isFlying)
                 {
-                    await DisableFlightMode();
+                    DisableAllFlight();
                 }
 
                 bool requestingEnable = !isFlightNoclip;
@@ -784,7 +782,7 @@ namespace NicNekoAdminStuff
                 else
                 {
                     // Disable flight + noclip mode
-                    await DisableFlightNoclipMode();
+                    DisableAllFlight();
                 }
             }
             catch (Exception ex)
@@ -797,8 +795,7 @@ namespace NicNekoAdminStuff
             }
         }
 
-        // Helper method to disable flight mode without messaging
-        private async Task DisableFlightMode()
+        private void DisableAllFlight()
         {
             var playerEntity = clientApi.World.Player.Entity;
             var worldData = clientApi.World.Player.WorldData;
@@ -818,31 +815,7 @@ namespace NicNekoAdminStuff
             }
 
             isFlying = false;
-            await Task.CompletedTask; // For async consistency
-        }
-
-        // Helper method to disable flight+noclip mode without messaging
-        private async Task DisableFlightNoclipMode()
-        {
-            var playerEntity = clientApi.World.Player.Entity;
-            var worldData = clientApi.World.Player.WorldData;
-
-            worldData.FreeMove = false;
-            worldData.NoClip = false;
-            playerEntity.Properties.FallDamageMultiplier = originalFallDamageMultiplier;
-            worldData.MoveSpeedMultiplier = 1f;
-            worldData.EntityControls.MovespeedMultiplier = 1f;
-            worldData.FreeMovePlaneLock = EnumFreeMovAxisLock.None;
-
-            playerEntity.PositionBeforeFalling = playerEntity.Pos.XYZ;
-
-            if (playerEntity.Pos.Motion.Y < -0.5)
-            {
-                playerEntity.Pos.Motion.Y = -0.5;
-            }
-
             isFlightNoclip = false;
-            await Task.CompletedTask; // For async consistency
         }
 
         #endregion
