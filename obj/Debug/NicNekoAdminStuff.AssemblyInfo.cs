@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NicNekoAdminStuff")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+acb68daa36b2573db4800a02088a8a72f28af25e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b6918701824d390b20dd79c5005c934ebc55482")]
 [assembly: System.Reflection.AssemblyProductAttribute("NicNekoAdminStuff")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NicNekoAdminStuff")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

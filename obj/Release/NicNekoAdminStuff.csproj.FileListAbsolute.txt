@@ -8,6 +8,7 @@ C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuf
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\NicNekoAdminStuff.AssemblyInfoInputs.cache
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\NicNekoAdminStuff.AssemblyInfo.cs
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\NicNekoAdminStuff.csproj.CoreCompileInputs.cache
+C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\NicNekoAdminStuff.sourcelink.json
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\NicNekoAdminStuff.dll
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\refint\NicNekoAdminStuff.dll
 C:\Desktop\Code_Stuff\Some Vintage Story Code\NicNekoAdminStuff\NicNekoAdminStuff\obj\Release\NicNekoAdminStuff.pdb
